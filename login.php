@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'id' => $user['id'],
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'role' => 'Jugador Élite' // ¡Nuevo rol gamer!
+                'role' => 'Jugador Superior' // ¡Nuevo rol gamer!
             ];
             $_SESSION['message'] = "🎉 ¡AUTENTICACIÓN EXITOSA, " . htmlspecialchars($user['name']) . "! Cargando Lobby...";
             redirect('dashboard.php');
