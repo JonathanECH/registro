@@ -1,0 +1,202 @@
+/* ================================================= */
+/* ESTILO: TERMINAL BLACK & NEON RED */
+/* ================================================= */
+
+:root {
+    --color-bg-darkest: #000000;      /* Fondo Negro Absoluto */
+    --color-bg-medium: #111111;       /* Tarjetas/Input */
+    --color-primary-red: #ff3333;     /* Rojo Neón Vibrante */
+    --color-text-light: #00ff00;      /* Texto principal (simulando terminal, verde) */
+    --color-text-error: #ff0000;      /* Mensajes de error rojo */
+    --color-border-grid: #330000;     /* Líneas de rejilla sutiles */
+    --font-family: 'Consolas', 'Courier New', monospace; /* Fuente de terminal */
+}
+
+/* Fondo con efecto de rejilla */
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-darkest) !important; 
+    /* Patrón de líneas rojas muy sutiles en el fondo */
+    background-image: linear-gradient(to right, var(--color-border-grid) 1px, transparent 1px), 
+                      linear-gradient(to bottom, var(--color-border-grid) 1px, transparent 1px);
+    background-size: 20px 20px;
+    
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header/Banner */
+header {
+    width: 100%;
+    background-color: var(--color-bg-darkest);
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-primary-red);
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+}
+
+header h1 {
+    color: var(--color-primary-red);
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px var(--color-primary-red); /* Neón intenso */
+    font-size: 2em;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    margin: 0 20px;
+    padding: 5px 10px;
+    transition: all 0.2s ease-in-out;
+    border: 1px dashed transparent;
+}
+
+nav a:hover {
+    color: var(--color-primary-red);
+    border-color: var(--color-primary-red);
+    text-shadow: 0 0 5px var(--color-primary-red);
+}
+
+main {
+    width: 90%;
+    max-width: 480px; 
+    padding: 20px;
+}
+
+/* Contenedor Principal (Card) */
+.card {
+    background: var(--color-bg-medium);
+    padding: 40px;
+    border-radius: 4px;
+    border: 2px solid var(--color-primary-red);
+    box-shadow: 0 0 30px rgba(255, 51, 51, 0.6); /* Sombra de neón fuerte */
+}
+
+.card h2 {
+    color: var(--color-text-light);
+    text-shadow: 0 0 5px var(--color-text-light);
+    text-align: center;
+    border-bottom: 1px dotted var(--color-primary-red);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Animación de entrada */
+.flow-animation {
+    opacity: 0;
+    transform: perspective(400px) translateY(30px) rotateX(-5deg);
+    animation: flowIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+}
+
+@keyframes flowIn {
+    to {
+        opacity: 1;
+        transform: perspective(400px) translateY(0) rotateX(0);
+    }
+}
+
+/* Formularios */
+.form-container label {
+    display: block;
+    margin: 20px 0 5px;
+    font-weight: bold;
+    color: var(--color-primary-red);
+    text-transform: uppercase;
+    text-shadow: 0 0 3px var(--color-primary-red);
+    font-size: 0.9em;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-primary-red);
+    border-radius: 0; /* Aspecto más cuadrado, terminal */
+    box-sizing: border-box;
+    background-color: var(--color-bg-darkest);
+    color: var(--color-text-light);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 5px rgba(255, 51, 51, 0.5);
+}
+
+.form-container input:focus {
+    border: 1px solid var(--color-text-light);
+    box-shadow: 0 0 15px var(--color-primary-red);
+    outline: none;
+}
+
+/* Botón de Acción */
+.button-submit {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin-top: 35px;
+    background-color: var(--color-primary-red);
+    color: var(--color-bg-darkest);
+    border: 1px solid var(--color-primary-red);
+    cursor: pointer;
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, transform 0.1s, box-shadow 0.3s;
+    text-shadow: none;
+}
+
+.button-submit:hover {
+    background-color: #ff6666;
+    box-shadow: 0 0 25px rgba(255, 51, 51, 1);
+}
+
+/* Mensajes y Feedback (Log de sistema) */
+.message {
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    border-radius: 0;
+    font-weight: bold;
+    border: 1px solid;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #003300; 
+    color: var(--color-text-light);
+    border-color: var(--color-text-light);
+    text-shadow: 0 0 3px var(--color-text-light);
+}
+
+.error-message {
+    background-color: #330000;
+    color: var(--color-text-error);
+    border-color: var(--color-text-error);
+    text-shadow: 0 0 3px var(--color-text-error);
+}
+
+.link-text a {
+    color: var(--color-primary-red);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--color-primary-red);
+}
+
+/* Dashboard Específico */
+.user-info-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid var(--color-text-light);
+    background-color: #050505;
+}
+
+.role-tag {
+    background-color: var(--color-primary-red);
+    color: var(--color-bg-darkest);
+    padding: 4px 8px;
+    border-radius: 0;
+    font-weight: bold;
+}
